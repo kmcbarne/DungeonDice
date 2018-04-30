@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="DungeonDiceRoller.PathButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DungeonDiceRoller"
+             mc:Ignorable="d" 
+             >
+    <Button x:Name="root">
+        <Button.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Path Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Path.Data>
+                        <PathGeometry Figures="{Binding ButtonPath}" />
+                    </Path.Data>                    
+                </Path>
+                <TextBlock Text="{Binding Text}" Grid.Row="1" TextWrapping="WrapWithOverflow" />
+            </Grid>
+        </Button.Content> 
+    </Button>
+</UserControl>

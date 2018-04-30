@@ -1,0 +1,52 @@
+﻿<Window x:Class="DungeonDiceRoller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DungeonDiceRoller"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File" />
+        </Menu>
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ToggleButton x:Name="fourSide" Content="d4" Margin="5" FontSize="25" Width="{Binding ElementName=fourSide, Path=ActualHeight}" Grid.Column="0" Grid.Row="0" />
+            <ToggleButton x:Name="sixSide" Content="d6" Margin="5" FontSize="25" Width="{Binding ElementName=sixSide, Path=ActualHeight}" Grid.Column="1" Grid.Row="0" />
+            <ToggleButton x:Name="eightSide" Content="d8" Margin="5" FontSize="25" Width="{Binding ElementName=eightSide, Path=ActualHeight}" Grid.Column="2" Grid.Row="0" />
+            <ToggleButton x:Name="tenSide" Content="d10" Margin="5" FontSize="25" Height="{Binding ElementName=tenSide, Path=ActualWidth}" Grid.Column="3" Grid.Row="0" />
+            <ToggleButton x:Name="twelveSide" Content="d12" Margin="5" FontSize="25" Width="{Binding ElementName=twelveSide, Path=ActualHeight}" Grid.Column="4" Grid.Row="0" />
+            <ToggleButton x:Name="twentySide"  Content="d20" Margin="5" FontSize="25" Width="{Binding ElementName=twentySide, Path=ActualHeight}" Grid.Column="5" Grid.Row="0" />
+            <ToggleButton x:Name="percentSide" Content="d%" Margin="5" FontSize="25" Width="{Binding ElementName=percentSide, Path=ActualHeight}" Grid.Column="6" Grid.Row="0" />            
+            <TextBox x:Name="fourCount" Grid.Column="0" Grid.Row="1" IsEnabled="{Binding ElementName=fourSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=fourSide, Path=ActualWidth}" IsEnabledChanged="fourCount_IsEnabledChanged" />
+            <TextBox x:Name="sixCount" Grid.Column="1" Grid.Row="1" IsEnabled="{Binding ElementName=sixSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=sixSide, Path=ActualWidth}" IsEnabledChanged="sixCount_IsEnabledChanged" />
+            <TextBox x:Name="eightCount" Grid.Column="2" Grid.Row="1" IsEnabled="{Binding ElementName=eightSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=eightSide, Path=ActualWidth}" IsEnabledChanged="eightCount_IsEnabledChanged" />
+            <TextBox x:Name="tenCount" Grid.Column="3" Grid.Row="1" IsEnabled="{Binding ElementName=tenSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=tenSide, Path=ActualWidth}" IsEnabledChanged="tenCount_IsEnabledChanged" />
+            <TextBox x:Name="twelveCount" Grid.Column="4" Grid.Row="1" IsEnabled="{Binding ElementName=twelveSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=twelveSide, Path=ActualWidth}" IsEnabledChanged="twelveCount_IsEnabledChanged" />
+            <TextBox x:Name="twentyCount" Grid.Column="5" Grid.Row="1" IsEnabled="{Binding ElementName=twentySide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=twentySide, Path=ActualWidth}" IsEnabledChanged="twentyCount_IsEnabledChanged" />
+            <TextBox x:Name="percentCount" Grid.Column="6" Grid.Row="1" IsEnabled="{Binding ElementName=percentSide, Path=IsChecked}" HorizontalContentAlignment="Center" Width="{Binding ElementName=percentSide, Path=ActualWidth}" IsEnabledChanged="percentCount_IsEnabledChanged" />
+
+            <!--<local:PathButton ButtonPath="M 0 4 L 8 4 L 4 0 Z M 0 6 L 8 6 L 8 8 L 0 8 Z" Height="80" Width="80" Caption="Eject"/>-->
+
+        </Grid>        
+        <StackPanel DockPanel.Dock="Bottom" Margin="5">
+            <Button x:Name="rollDice" Content="Throw dem Bones" Click="rollDice_Click"/>
+            <TextBlock x:Name="resultsDisplay" MinWidth="150" MinHeight="200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="OrangeRed" Foreground="White" TextWrapping="Wrap"/>
+            <!--  <local:NumberUpDown Width="100" /> -->
+        </StackPanel>
+        
+    </DockPanel>
+</Window>
